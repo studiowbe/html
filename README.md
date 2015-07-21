@@ -2,6 +2,12 @@
 A helper package for generating HTML5 tags
 
 ## Usage
+### Installation
+The easiest way to install this package is using composer:
+``` bash
+composer require studiow/html
+```
+
 ### Basic usage
 Generating HTML tags with this package is pretty easy:
 ```php
