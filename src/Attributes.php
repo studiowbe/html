@@ -25,38 +25,6 @@ class Attributes extends \ArrayObject
     }
 
     /**
-     * Create HTML open tag, or a HTML5 void tag
-     * @param string $tagname
-     * @return string
-     */
-    public function openTag($tagname)
-    {
-        $content = trim($tagname . ' ' . (string) $this);
-        return "<{$content}>";
-    }
-
-    /**
-     * Create HTML close tag
-     * @param string $tagname
-     * @return string
-     */
-    public function closeTag($tagname)
-    {
-        return "</{$tagname}>";
-    }
-
-    /**
-     * Create HTML tag
-     * @param string $tagname
-     * @param string $innerHTML
-     * @return string
-     */
-    public function tag($tagname, $innerHTML)
-    {
-        return $this->openTag($tagname) . $innerHTML . $this->closeTag($tagname);
-    }
-
-    /**
      * Determine if the element has a certain class
      * @param string $classname
      * @return bool
