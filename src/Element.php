@@ -66,14 +66,10 @@ class Element
 
     /**
      * get the content of the element
-     * @param bool $trim
      * @return string
      */
-    public function getInnerHTML($trim = true)
+    public function getInnerHTML()
     {
-        if ($trim) {
-            return trim($this->innerHTML);
-        }
         return $this->innerHTML;
     }
 
