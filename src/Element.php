@@ -4,13 +4,8 @@ namespace Studiow\HTML;
 
 class Element
 {
-
-    /**
-     * Attributes
-     * @var \Studiow\HTML\Attributes 
-     */
-    public $attributes;
-
+    use HasAttributesTrait;
+    
     /**
      * @var string
      */
@@ -30,7 +25,7 @@ class Element
     {
         $this->setTagName($tagname);
         $this->setInnerHTML($innerHTML);
-        $this->attributes = new Attributes($attributes);
+        $this->setAttributes(new Attributes($attributes));
     }
 
     /**
@@ -113,69 +108,5 @@ class Element
         return "</{$this->tagname}>";
     }
 
-    /**
-     * Add a class
-     * @param string $classname
-     * @return \Studiow\HTML\Element
-     */
-    public function addClass($classname)
-    {
-        $this->attributes->addClass($classname);
-        return $this;
-    }
-
-    /**
-     * Remove a class
-     * @param string $classname
-     * @return \Studiow\HTML\Element
-     */
-    public function removeClass($classname)
-    {
-        $this->attributes->removeClass($classname);
-        return $this;
-    }
-
-    /**
-     * Determine if the element has a certain class
-     * @param string $classname
-     * @return bool
-     */
-    public function hasClass($classname)
-    {
-        return $this->attributes->hasClass($classname);
-    }
-
-    /**
-     * Set attribute
-     * @param string $name
-     * @param mixed $value
-     * @return \Studiow\HTML\Element
-     */
-    public function setAttribute($name, $value)
-    {
-        $this->attributes[$name] = $value;
-        return $this;
-    }
-
-    /**
-     * Remove attribute
-     * @param string $name
-     */
-    public function removeAttribute($name)
-    {
-        if (array_key_exists($name, $this->attributes)) {
-            unset($this->attributes[$name]);
-        }
-    }
-
-    /**
-     * Get attribute value
-     * @param type $name
-     * @return mixed null if the attribute does not exist, otherwise the current value of the attribute
-     */
-    public function getAttribute($name)
-    {
-        return array_key_exists($name, $this->attributes) ? $this->attributes[$name] : null;
-    }
 
 }
