@@ -4,8 +4,9 @@ namespace Studiow\HTML;
 
 class Element
 {
+
     use HasAttributesTrait;
-    
+
     /**
      * @var string
      */
@@ -21,11 +22,11 @@ class Element
      * @param string $innerHTML
      * @param array $attributes
      */
-    public function __construct($tagname, $innerHTML = null, array $attributes = [])
+    public function __construct($tagname, $innerHTML = null, \Traversable $attributes = [])
     {
         $this->setTagName($tagname);
         $this->setInnerHTML($innerHTML);
-        $this->setAttributes(new Attributes($attributes));
+        $this->setAttributes($attributes instanceof Attributes ? $attributes : new Attributes((array) $attributes));
     }
 
     /**
@@ -107,6 +108,5 @@ class Element
     {
         return "</{$this->tagname}>";
     }
-
 
 }
