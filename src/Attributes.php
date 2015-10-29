@@ -13,7 +13,7 @@ class Attributes extends \ArrayObject
     {
         $out = [];
         foreach ($this as $attribute => $value) {
-            if (!empty($value)) {
+            if (strlen((string) $value) > 0) {
                 if (is_bool($value)) {
                     $out[] = $attribute;
                 } else {
