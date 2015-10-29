@@ -22,7 +22,7 @@ class Element
      * @param string $innerHTML
      * @param array $attributes
      */
-    public function __construct($tagname, $innerHTML = null, \Traversable $attributes = [])
+    public function __construct($tagname, $innerHTML = null, $attributes = [])
     {
         $this->setTagName($tagname);
         $this->setInnerHTML($innerHTML);
